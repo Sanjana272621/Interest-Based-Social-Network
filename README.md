@@ -38,7 +38,7 @@ The system uses this structured data to power a recommendation engine that consi
 
 ## Tech Stack
 - MYSQL
-- FatAPI
+- FastAPI
 - TailwindCSS
 
 
