@@ -35,3 +35,30 @@ The system uses this structured data to power a recommendation engine that consi
 - Track watched movies, read books, and completed TV shows
 
 - Multi-language support for all content
+
+## Tech Stack
+- MYSQL
+- FatAPI
+- TailwindCSS
+
+
+## Setup and Installation
+**Prerequisites**
+- Python 3.8+
+
+- MySQL Server (5.7 or higher)
+
+- pip (Python package installer)
+
+## Future Enhancements
+- Planned additions to expand system functionality:
+
+- Advanced Recommendation Logic: Integrate collaborative filtering or hybrid recommender models.
+
+- Privacy Settings: Allow users to control who sees their activity and preferences.
+
+- Search & Filter Tools: Add filters for genre/language in discovery views.
+
+- Rating and Review System: Enable feedback on movies, books, and TV shows.
+
+- Real-Time Features: Integrate WebSocket-based messaging or activity feeds.
