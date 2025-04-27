@@ -29,6 +29,10 @@ class Languages(Base):
 
     LID = Column(Integer, primary_key=True, autoincrement=True)
     LANGUAGE = Column(String(50), unique=True, nullable=False)
+    
+    tvshows = relationship('TVShows', back_populates='language')
+    movies = relationship('Movies', back_populates='language')
+    books = relationship('Books', back_populates='language')
 
 
 class Genres(Base):
@@ -45,7 +49,7 @@ class Movies(Base):
     MOVIE = Column(String(255), unique=True, nullable=False)
     LID = Column(Integer, ForeignKey('languages.LID'), nullable=True)
 
-    language = relationship('Languages', back_populates='movies')
+    language = relationship('Languages', back_populates='movies') #settign up foreign key
 
 class Books(Base):
     __tablename__ = 'books'
