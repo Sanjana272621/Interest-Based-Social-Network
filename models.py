@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, CheckConstraint
-from .database import Base 
+from database import Base, engine
 from sqlalchemy.orm import relationship 
 
 
@@ -15,8 +15,8 @@ class User(Base):
 class Follow(Base):
     __tablename__ = "follow"  
     
-    XID = Column(Integer, ForeignKey("user.uid"), nullable=False)
-    YID = Column(Integer, ForeignKey("user.uid"), nullable=False)
+    XID = Column(Integer, ForeignKey("user.uid"), nullable=False, primary_key = True)
+    YID = Column(Integer, ForeignKey("user.uid"), nullable=False, primary_key = True)
     
     #check constraint to ensure XID and YID are not the same
     __table_args__ = (
@@ -29,7 +29,7 @@ class Languages(Base):
 
     LID = Column(Integer, primary_key=True, autoincrement=True)
     LANGUAGE = Column(String(50), unique=True, nullable=False)
-    
+
     tvshows = relationship('TVShows', back_populates='language')
     movies = relationship('Movies', back_populates='language')
     books = relationship('Books', back_populates='language')
@@ -153,3 +153,5 @@ class UserBookRead(Base):
 
     UID = Column(Integer, ForeignKey('user.uid'), primary_key=True)
     BID = Column(Integer, ForeignKey('books.BID'), primary_key=True)
+
+Base.metadata.create_all(engine)
